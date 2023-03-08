@@ -1,0 +1,14 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block menu %}
+    {% import 'macro/macroMenu.html.twig' as macroMenu %}
+    {{ macroMenu.menu('Ma banque',1) }}
+{% endblock %}
+
+{% block body %}
+    <h1>La banque a qui ne pas parler</h1>
+    <p>Nous ce que l'on veut, c'est votre argent :)</p>
+{% endblock %}

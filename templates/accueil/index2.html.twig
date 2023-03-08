@@ -1,0 +1,15 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block menu %}
+   {% import 'macro/macroMenu.html.twig' as macroMenu %}
+   {{ macroMenu.menu('Ma banque',2) }}
+{% endblock %}
+
+{% block body %}
+   accueil par défaut
+   <a href="{{ path('app_accueil') }}">vers la page 1</a>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Nos Offres</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Compte courant</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Un compte courant est un compte bancaire qui permet de recevoir et de payer des sommes d'argent. Il est ouvert à la demande du client et peut être utilisé pour effectuer des paiements, des virements, des prélèvements, des retraits d'espèces, etc.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href=" " class="btn btn-primary">Voir</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Compte épargne</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Un compte d'épargne est un compte bancaire qui permet de placer de l'argent sur le long terme. Il est ouvert à la demande du client et peut être utilisé pour effectuer des paiements, des virements, des prélèvements, des retraits d'espèces, etc.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href=" " class="btn btn-primary">Voir</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Compte joint</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Un compte joint est un compte bancaire qui permet de placer de l'argent sur le long terme. Il est ouvert à la demande du client et peut être utilisé pour effectuer des paiements, des virements, des prélèvements, des retraits d'espèces, etc.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href=" " class="btn btn-primary">Voir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block menu %}
+    {% import 'macro/macroMenu.html.twig' as macroMenu %}
+    {{ macroMenu.menu('Ma banque',2) }}
+{% endblock %}
+
