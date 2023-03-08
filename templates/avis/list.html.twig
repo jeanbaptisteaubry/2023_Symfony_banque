@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block menu %}
+    {% import 'macro/macroMenu.html.twig' as macroMenu %}
+    {{ macroMenu.menu('Ma banque',4) }}
+{% endblock %}
+
+{% block title %}Avis index{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Avis</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+        {% for avi in avis %}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>{{ avi.date ? avi.date|date('Y-m-d') : '' }} {{ avi.titre }} {{ avi.note }} / 5</h3>
+                    </div>
+                    <div class="card-body">
+                        {{ avi.message }}
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ path('app_avis_show', {'id': avi.id}) }}" class="btn btn-primary">Voir</a>
+                    </div>
+                </div>
+            </div>
+
+        {% else %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Aucun avis</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Il n'y a pas encore d'avis</p>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <a href="{{ path('app_avis_new') }}">Rédiger un nouveau</a>
+{% endblock %}

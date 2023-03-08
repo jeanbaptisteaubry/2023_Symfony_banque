@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\TypeOffreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,9 +16,12 @@ class AccueilController extends AbstractController
     }
 
     #[Route('/nos_offres', name: 'controlleur_offres')]
-    public function controlleur_offres(): Response
+    public function controlleur_offres(TypeOffreRepository $typeOffreRepository): Response
     {
-        return $this->render('accueil/offres.html.twig');
+
+        return $this->render('accueil/offres.html.twig', [
+            'listeTypeOffre' => $typeOffreRepository->findAll(),
+        ]   );
     }
 
     #[Route('/nos_clients', name: 'controlleur_clients')]

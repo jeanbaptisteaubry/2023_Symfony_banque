@@ -10,45 +10,21 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Compte courant</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>Un compte courant est un compte bancaire qui permet de recevoir et de payer des sommes d'argent. Il est ouvert à la demande du client et peut être utilisé pour effectuer des paiements, des virements, des prélèvements, des retraits d'espèces, etc.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href=" " class="btn btn-primary">Voir</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Compte épargne</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>Un compte d'épargne est un compte bancaire qui permet de placer de l'argent sur le long terme. Il est ouvert à la demande du client et peut être utilisé pour effectuer des paiements, des virements, des prélèvements, des retraits d'espèces, etc.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href=" " class="btn btn-primary">Voir</a>
+                    {% for typeOffre in listeTypeOffre %}
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>{{ typeOffre.titre }}</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p>{{ typeOffre.description }} </p> </div>
+                                <div class="card-footer">
+                                    <a href=" " class="btn btn-primary">Voir</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Compte joint</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>Un compte joint est un compte bancaire qui permet de placer de l'argent sur le long terme. Il est ouvert à la demande du client et peut être utilisé pour effectuer des paiements, des virements, des prélèvements, des retraits d'espèces, etc.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href=" " class="btn btn-primary">Voir</a>
-                            </div>
-                        </div>
-                    </div>
+                    {% else %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
