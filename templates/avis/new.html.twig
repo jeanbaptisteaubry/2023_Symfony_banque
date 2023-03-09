@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block menu %}
+    {% import 'macro/macroMenu.html.twig' as macroMenu %}
+    {{ macroMenu.menu('Ma banque',4) }}
+{% endblock %}
+
+{% block title %}New Avis{% endblock %}
+
+{% block body %}
+    <h1>Create new Avis</h1>
+
+    {{ include('avis/_form.html.twig') }}
+    {{ msg }}
+    <a href="{{ path('app_avis_index') }}">back to list</a>
+{% endblock %}
