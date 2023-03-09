@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeClient index{% endblock %}
+
+{% block body %}
+    <h1>TypeClient index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_client in type_clients %}
+            <tr>
+                <td>{{ type_client.id }}</td>
+                <td>{{ type_client.titre }}</td>
+                <td>{{ type_client.description }}</td>
+                <td>
+                    <a href="{{ path('app_type_client_show', {'id': type_client.id}) }}">show</a>
+                    <a href="{{ path('app_type_client_edit', {'id': type_client.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_client_new') }}">Create new</a>
+{% endblock %}

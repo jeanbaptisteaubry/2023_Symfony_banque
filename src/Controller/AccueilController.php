@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\TypeClientRepository;
 use App\Repository\TypeOffreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,8 +26,12 @@ class AccueilController extends AbstractController
     }
 
     #[Route('/nos_clients', name: 'controlleur_clients')]
-    public function controlleur_clients(): Response
+    public function controlleur_clients(TypeClientRepository $typeClientRepository): Response
     {
-        return $this->render('accueil/client.html.twig');
+        return $this->render('accueil/client.html.twig'
+            , [
+                'listeTypeClient' => $typeClientRepository->findAll(),
+            ]
+        );
     }
 }

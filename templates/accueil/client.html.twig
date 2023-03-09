@@ -1,66 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Nos clients</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Nos clients</h1>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Particulier</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    {% for typeclient in listeTypeClient  %}
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>{{ typeclient.titre }}</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p>{{ typeclient.description }}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href=" " class="btn btn-primary">Voir</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <p>Nous proposons des offres adaptées aux particuliers pour les accompagner dans tous les moments de la vie.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href=" " class="btn btn-primary">Voir</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Professionnel</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Nous proposons des offres adaptées aux professionnels pour les accompagner dans tous les aspects de leur vie professionnelle !</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href=" " class="btn btn-primary">Voir</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Entreprise</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Nous proposons des offres adaptées aux entreprises pour les accompagner dans leur quotiden comme leur développement.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href=" " class="btn btn-primary">Voir</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Association</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Nous proposons des offres adaptées aux associations pour les accompagner dans leur développement.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href=" " class="btn btn-primary">Voir</a>
-                        </div>
-                    </div>
+                    {% else %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
