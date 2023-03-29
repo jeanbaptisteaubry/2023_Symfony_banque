@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Compte;
+use App\Entity\Utilisateur;
 use App\Entity\VirementEntrant;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,7 +19,10 @@ class VirementEntrant1Type extends AbstractType
             ->add('montant')
             ->add('ibanEmetteur')
             ->add('reference')
-            ->add('compteBeneficiaire')
+            ->add('compteBeneficiaire', EntityType::class, [
+                'class' => Compte::class,
+                'choice_label' => 'iban',
+            ])
         ;
     }
 

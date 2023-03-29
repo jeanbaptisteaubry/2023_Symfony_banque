@@ -26,6 +26,7 @@ class CompteController extends AbstractController
     {
         $compte = new Compte();
         $form = $this->createForm(Compte1Type::class, $compte);
+        $compte->setClient($this->getUser());
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
