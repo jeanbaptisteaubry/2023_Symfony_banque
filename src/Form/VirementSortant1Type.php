@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Compte;
 use App\Entity\VirementSortant;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +15,10 @@ class VirementSortant1Type extends AbstractType
     {
         $builder
             ->add('date')
-            ->add('ibanDestinataire')
+            ->add('ibanDestinataire', EntityType::class, [
+                'class' => Compte::class,
+                'choice_label' => 'iban',
+            ])
             ->add('reference')
             ->add('compteEmetteur')
         ;
