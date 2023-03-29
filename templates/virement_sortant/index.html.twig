@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VirementSortant index{% endblock %}
+
+{% block body %}
+    <h1>VirementSortant index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>IbanDestinataire</th>
+                <th>Reference</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for virement_sortant in virement_sortants %}
+            <tr>
+                <td>{{ virement_sortant.id }}</td>
+                <td>{{ virement_sortant.date ? virement_sortant.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ virement_sortant.ibanDestinataire }}</td>
+                <td>{{ virement_sortant.reference }}</td>
+                <td>
+                    <a href="{{ path('app_virement_sortant_show', {'id': virement_sortant.id}) }}">show</a>
+                    <a href="{{ path('app_virement_sortant_edit', {'id': virement_sortant.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_virement_sortant_new') }}">Create new</a>
+{% endblock %}
+
+{% block menu %}
+    {% import 'macro/macroMenu.html.twig' as macroMenu %}
+    {{ macroMenu.menu('Ma banque',7) }}
+{% endblock %}

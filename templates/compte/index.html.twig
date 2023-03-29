@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compte index{% endblock %}
+
+{% block menu %}
+    {% import 'macro/macroMenu.html.twig' as macroMenu %}
+    {{ macroMenu.menu('Ma banque',6) }}
+{% endblock %}
+
+{% block body %}
+    <h1>Compte index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NumCompte</th>
+                <th>Iban</th>
+                <th>Titre</th>
+                <th>CodeBanque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compte in comptes %}
+            <tr>
+                <td>{{ compte.id }}</td>
+                <td>{{ compte.numCompte }}</td>
+                <td>{{ compte.iban }}</td>
+                <td>{{ compte.titre }}</td>
+                <td>{{ compte.codeBanque }}</td>
+                <td>
+                    <a href="{{ path('app_compte_show', {'id': compte.id}) }}">show</a>
+                    <a href="{{ path('app_compte_edit', {'id': compte.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_compte_new') }}">Create new</a>
+{% endblock %}

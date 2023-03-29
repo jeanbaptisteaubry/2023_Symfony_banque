@@ -36,7 +36,47 @@
                     <a class="nav-link" href="/avis/">Avis des clients</a>
                 </li>
 
+                {% if not app.user %} {# Si l'utilisateur n'est pas connecté #}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Inscription</a>
+                    </li>
 
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="/login">Connexion</a>
+                    </li>
+                {% else %}
+                        {# L'utilisateur est connecté
+                        on va construire le menu avec ses comptes et ses mouvements #}
+                        <li class="nav-item
+                        {% if menuActif == 5 %}
+                            active
+                        {% endif %}">
+                            <a class="nav-link" href="/compte">Mes comptes</a>
+                        </li>
+                    <li class="nav-item
+                        {% if menuActif == 6 %}
+                            active
+                        {% endif %}">
+                        <a class="nav-link" href="/virement/sortant">Virements sortants</a>
+                    </li>
+                    <li class="nav-item
+                        {% if menuActif == 7 %}
+                            active
+                        {% endif %}">
+                        <a class="nav-link" href="/virement/entrant">Virements entrants</a>
+                    </li>
+
+                        <li class="nav-item
+                        {% if menuActif == 5 %}
+                            active
+                        {% endif %}">
+                            <a class="nav-link" href="/">Mon compte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Déconnexion</a>
+                        </li>
+                {% endif %}
             </ul>
 
         </div>

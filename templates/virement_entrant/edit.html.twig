@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit VirementEntrant{% endblock %}
+
+{% block body %}
+    <h1>Edit VirementEntrant</h1>
+
+    {{ include('virement_entrant/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_virement_entrant_index') }}">back to list</a>
+
+    {{ include('virement_entrant/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block menu %}
+    {% import 'macro/macroMenu.html.twig' as macroMenu %}
+    {{ macroMenu.menu('Ma banque',7) }}
+{% endblock %}
